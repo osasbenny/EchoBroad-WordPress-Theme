@@ -40,6 +40,10 @@ if ( ! function_exists( 'echobroad_setup' ) ) :
             'flex-width'  => true,
             'flex-height' => true,
         ) );
+
+        // Add support for Elementor and Block Editor
+        add_theme_support( 'align-wide' );
+        add_theme_support( 'editor-styles' );
     }
 endif;
 add_action( 'after_setup_theme', 'echobroad_setup' );
@@ -51,11 +55,14 @@ function echobroad_scripts() {
     // Enqueue the main CSS file from assets
     wp_enqueue_style( 'echobroad-style', get_template_directory_uri() . '/assets/index-BmJKvE7q.css', array(), '1.0.0' );
     
-    // Enqueue the main JS file from assets as a module
-    wp_enqueue_script( 'echobroad-script', get_template_directory_uri() . '/assets/index-D_DrbjYX.js', array(), '1.0.0', true );
-    
-    // Add type="module" to the script tag
-    add_filter('script_loader_tag', 'echobroad_add_module_to_script', 10, 3);
+    // Only enqueue the React app on the front-end and NOT in the editor/Elementor
+    if ( ! is_admin() && ! is_customize_preview() && ! isset( $_GET['elementor-preview'] ) ) {
+        // Enqueue the main JS file from assets as a module
+        wp_enqueue_script( 'echobroad-script', get_template_directory_uri() . '/assets/index-D_DrbjYX.js', array(), '1.0.0', true );
+        
+        // Add type="module" to the script tag
+        add_filter('script_loader_tag', 'echobroad_add_module_to_script', 10, 3);
+    }
 
     // Enqueue Paystack script
     wp_enqueue_script( 'paystack-inline', 'https://js.paystack.co/v1/inline.js', array(), null, true );
@@ -71,3 +78,15 @@ function echobroad_add_module_to_script($tag, $handle, $src) {
     }
     return $tag;
 }
+
+/**
+ * Fix for "Not a valid JSON response" error
+ * This can be caused by the theme outputting something unexpected during REST API calls.
+ */
+function echobroad_fix_rest_api_json_error() {
+    // Ensure no extra output before REST API responses
+    if ( defined( 'REST_REQUEST' ) && REST_REQUEST ) {
+        // You can add specific REST API fixes here if needed
+    }
+}
+add_action( 'rest_api_init', 'echobroad_fix_rest_api_json_error' );

@@ -18,5 +18,9 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 <div id="page" class="site">
-    <div id="root"></div>
-    <!-- The React app will render the entire page content into this #root div -->
+    <?php 
+    // Only render the React root div on the front-end when not in the editor
+    if ( ! is_admin() && ! is_customize_preview() && ! isset( $_GET['elementor-preview'] ) ) : ?>
+        <div id="root"></div>
+        <!-- The React app will render the entire page content into this #root div -->
+    <?php endif; ?>
