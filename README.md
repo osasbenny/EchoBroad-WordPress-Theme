@@ -34,5 +34,5 @@ To import the 3 original blog posts:
 - `inc/`: Custom template tags and functions.
 
 ## Credits
-Original Design & Development: Osas Benny
+Original Design & Development: [Osagie Bernard Ebhuomhan](https://instagram.com/osas.codes)
 Conversion: Manus AI
