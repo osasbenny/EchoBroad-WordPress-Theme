@@ -56,7 +56,11 @@ function echobroad_scripts() {
     wp_enqueue_style( 'echobroad-style', get_template_directory_uri() . '/assets/index-BmJKvE7q.css', array(), '1.0.0' );
     
     // Only enqueue the React app on the front-end and NOT in the editor/Elementor
-    if ( ! is_admin() && ! is_customize_preview() && ! isset( $_GET['elementor-preview'] ) ) {
+    // Also check for REST API requests to avoid JSON errors
+    $is_rest = defined( 'REST_REQUEST' ) && REST_REQUEST;
+    $is_elementor = isset( $_GET['elementor-preview'] ) || ( function_exists( 'elementor_load_control_textdomain' ) && \Elementor\Plugin::$instance->editor->is_edit_mode() );
+
+    if ( ! is_admin() && ! is_customize_preview() && ! $is_elementor && ! $is_rest ) {
         // Enqueue the main JS file from assets as a module
         wp_enqueue_script( 'echobroad-script', get_template_directory_uri() . '/assets/index-D_DrbjYX.js', array(), '1.0.0', true );
         
@@ -80,13 +84,8 @@ function echobroad_add_module_to_script($tag, $handle, $src) {
 }
 
 /**
- * Fix for "Not a valid JSON response" error
- * This can be caused by the theme outputting something unexpected during REST API calls.
+ * Increase PHP limits for Elementor installation if possible via code
+ * Note: This might not work on all hosting environments, but it's a good safety measure.
  */
-function echobroad_fix_rest_api_json_error() {
-    // Ensure no extra output before REST API responses
-    if ( defined( 'REST_REQUEST' ) && REST_REQUEST ) {
-        // You can add specific REST API fixes here if needed
-    }
-}
-add_action( 'rest_api_init', 'echobroad_fix_rest_api_json_error' );
+@ini_set( 'memory_limit', '512M' );
+@ini_set( 'max_execution_time', '300' );
