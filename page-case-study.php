@@ -1070,7 +1070,7 @@ get_header();
     <div class="video-eyebrow-cs f-ui">Live Ad Creative Proof — Execuluxe Campaign</div>
     <div class="video-grid-cs">
       <div class="vcard-cs exec-cs" onclick="playVid(this)">
-        <video src="https://execuluxe.com/cdn/shop/files/rollerbrief_demo.mov" loop muted playsinline preload="metadata"></video>
+        <video src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663207493210/yQQkVinUjETfVsEZ.mp4" loop muted playsinline preload="metadata"></video>
         <div class="vcard-shade-cs"></div>
         <div class="vcard-play-cs"><div class="play-tri-cs"></div></div>
         <div class="vcard-info-cs">
@@ -1079,7 +1079,7 @@ get_header();
         </div>
       </div>
       <div class="vcard-cs exec-cs" onclick="playVid(this)">
-        <video src="https://execuluxe.com/cdn/shop/files/lv_0_20231211071748.mp4" loop muted playsinline preload="metadata"></video>
+        <video src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663207493210/yQQkVinUjETfVsEZ.mp4" loop muted playsinline preload="metadata"></video>
         <div class="vcard-shade-cs"></div>
         <div class="vcard-play-cs"><div class="play-tri-cs"></div></div>
         <div class="vcard-info-cs">
@@ -1261,7 +1261,7 @@ get_header();
     <div class="video-eyebrow-cs f-ui">Live Ad Creative Proof — Elysian Parfum Campaign</div>
     <div class="video-grid-cs">
       <div class="vcard-cs ely-cs" onclick="playVid(this)">
-        <video src="https://elysianparfum.com/cdn/shop/files/UGC_HEDOISM.mov" loop muted playsinline preload="metadata"></video>
+        <video src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663207493210/xBCuRQSHsdVOhwHN.mp4" loop muted playsinline preload="metadata"></video>
         <div class="vcard-shade-cs"></div>
         <div class="vcard-play-cs"><div class="play-tri-cs"></div></div>
         <div class="vcard-info-cs">
@@ -1270,7 +1270,7 @@ get_header();
         </div>
       </div>
       <div class="vcard-cs ely-cs" onclick="playVid(this)">
-        <video src="https://elysianparfum.com/cdn/shop/files/video_20260408_081234_edit.mp4" loop muted playsinline preload="metadata"></video>
+        <video src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663207493210/xBCuRQSHsdVOhwHN.mp4" loop muted playsinline preload="metadata"></video>
         <div class="vcard-shade-cs"></div>
         <div class="vcard-play-cs"><div class="play-tri-cs"></div></div>
         <div class="vcard-info-cs">
